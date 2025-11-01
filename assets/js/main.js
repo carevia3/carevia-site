@@ -137,39 +137,66 @@ async function loadTestimonials() {
     const container = document.querySelector(".testimonials-grid");
     if (!container) return;
 
-    container.innerHTML = `<p style="text-align:center;">Loading stories...</p>`;
+    container.innerHTML = "";
 
     const { data, error } = await supabase
         .from("stories")
         .select("*")
         .order("id", { ascending: false });
 
-    if (error) {
-        console.error(error);
-        container.innerHTML = `<p style="text-align:center;color:red;">Failed to load testimonials</p>`;
+    if (error || !data.length) {
+        container.innerHTML = "<p>No stories found</p>";
         return;
     }
-
-    if (!data.length) {
-        container.innerHTML = `<p style="text-align:center;">No stories found yet.</p>`;
-        return;
-    }
-
-    container.innerHTML = "";
 
     data.forEach(story => {
         const card = document.createElement("div");
-        card.classList.add("testimonial-card");
+        card.classList.add("story-accordion");
 
         card.innerHTML = `
-            ${story.image_url ? `<img src="${story.image_url}" class="testimonial-img">` : ""}
-            <div class="testimonial-text">"${story.content}"</div>
-            <div class="testimonial-author">
-                <strong>${story.author || "Anonymous"}</strong>
-                <span>${story.title || ""}</span>
+            <div class="story-header">
+                <strong>${story.title || "Story"}</strong>
+                <span class="arrow">+</span>
+            </div>
+
+            <div class="story-content">
+                ${story.image_url ? `<img src="${story.image_url}" class="testimonial-img">` : ""}
+                <p>${story.content}</p>
+                <div class="testimonial-author">
+                    <strong>${story.author || "Anonymous"}</strong>
+                </div>
             </div>
         `;
 
         container.appendChild(card);
     });
+
+    const headers = document.querySelectorAll(".story-header");
+
+    headers.forEach(header => {
+        header.addEventListener("click", () => {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector(".arrow");
+
+            // ✅ close all other open ones
+            document.querySelectorAll(".story-content.open").forEach(openContent => {
+                if (openContent !== content) {
+                    openContent.classList.remove("open");
+                    openContent.previousElementSibling.querySelector(".arrow").classList.remove("rotate");
+                }
+            });
+
+            // ✅ toggle this one
+            content.classList.toggle("open");
+            arrow.classList.toggle("rotate");
+
+            // ✅ smooth scroll into view when opening
+            if (content.classList.contains("open")) {
+                setTimeout(() => {
+                    content.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 300);
+            }
+        });
+    });
 }
+
