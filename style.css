@@ -770,27 +770,28 @@ section {
    GALLERY SECTION
    Instagram-style slider (clean version)
 ================================================== */
-/* ===== GALLERY (Instagram style) ===== */
+
+/* ===== GALLERY (Instagram-style slider) ===== */
 .gallery-section {
   padding: 60px 15px;
   background: #fafafa;
   text-align: center;
 }
 
-.gallery-heading {
+.gallery-section h2 {
   font-size: 1.9rem;
   font-weight: 700;
   color: #2b3d6b;
   margin-bottom: 6px;
 }
 
-.gallery-subtext {
+.gallery-section p {
   font-size: 1rem;
   color: #666;
   margin-bottom: 25px;
 }
 
-/* ✅ SWIPER WRAPPER */
+/* === Swiper container === */
 .gallerySwiper {
   width: 100%;
   max-width: 420px;
@@ -801,43 +802,34 @@ section {
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
-/* ✅ SWIPER SLIDES */
+/* Slide wrapper */
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* ✅ Instagram-like photo */
+/* === Card === */
 .gallery-card {
   width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 0 !important;
 }
 
+/* === Image (no black bars, perfect fit) === */
 .gallery-img {
   width: 100%;
-  height: 420px;             /* Instagram-style fixed height */
-  object-fit: cover;         /* crop properly */
-  object-position: center;   /* center the crop */
+  height: 420px;      /* Same-height Instagram style */
+  object-fit: cover;  /* fills fully, no black padding */
+  object-position: center;
   display: block;
 }
-.gallery-card {
-  width: 100%;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
 
-.gallerySwiper {
-  max-width: 450px;
-  margin: auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-
-/* ✅ Pagination dots */
+/* Pagination dots */
 .swiper-pagination {
-  bottom: 6px !important;
+  bottom: 10px !important;
 }
 
 .swiper-pagination-bullet {
