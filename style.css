@@ -846,56 +846,71 @@ section {
     8. DONATE SECTION
 ==================================================
 */
-
-.donation-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+/* ===== DONATION SECTION ===== */
+.donation-section {
+    padding: 70px 15px;
+    background: #f5f8ff;
 }
 
-.donation-card {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-}
-
-.bank-details {
-    border-left: 5px solid var(--primary-color);
-}
-
-.bank-info p {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-size: 0.95rem;
-    word-break: break-word;
-}
-
-.bank-info strong {
-    color: var(--primary-darker);
-}
-
-/* This is the consolidated, functional .qr-code style */
-.qr-code {
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #243a68;
     text-align: center;
-    margin: 20px 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid #ddd;
+    margin-bottom: 8px;
 }
 
-.qr-code img {
-    max-width: 250px;
+.section-header p {
+    font-size: 1rem;
+    text-align: center;
+    color: #555;
+    margin-bottom: 35px;
+}
+
+/* Card Grid */
+.donation-grid {
+    display: flex;
+    justify-content: center;
+}
+
+/* Card Box */
+.donation-card {
+    background: #ffffff;
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 450px;
+    padding: 25px 22px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border-top: 4px solid #2b3d6b;
 }
 
-/* Styles for the donation form (which is also a .donation-card) */
-.donation-form h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-darker);
+.donation-card h3 {
+    color: #2b3d6b;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+    text-align: center;
 }
+
+/* Bank info styling */
+.bank-info p {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 6px 0;
+    line-height: 1.45;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .donation-card {
+        max-width: 100%;
+        padding: 22px 18px;
+    }
+
+    .bank-info p {
+        font-size: 0.9rem;
+    }
+}
+
 
 /* ==================================================
     9. FORMS (Donate & Contact)
