@@ -86,7 +86,7 @@
 */
 
 :root {
-    --primary-color: #0a0c0e;
+    --primary-color: #8fc9ff;
     --primary-dark: #6ba7e6;
     --primary-darker: #4a85cc;
     --text-on-primary: #333333;
@@ -1687,5 +1687,60 @@ a:focus {
     /* Reduce huge top spacing */
     section h2 {
         font-size: 1.8rem !important;
+    }
+}
+/* ✅ GLOBAL MOBILE FIX — FULL WIDTH LAYOUT */
+@media (max-width: 768px) {
+
+    /* Remove the narrow column effect */
+    .container,
+    .contact-box,
+    .testimonials-section,
+    .testimonials-grid,
+    .gallery-section,
+    .gallerySwiper,
+    .swiper-wrapper,
+    .swiper-slide,
+    .gallery-card,
+    .story-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Make story text readable */
+    .story-text,
+    .testimonial-text {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        text-align: left !important;
+    }
+
+    /* Fix story cards stretching */
+    .story-card {
+        border-radius: 12px;
+    }
+
+    /* Gallery images full width */
+    .gallery-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* Testimonials images full width */
+    .testimonial-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover;
+    }
+
+    /* Remove extra margin space between sections */
+    section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
