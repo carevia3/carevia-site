@@ -133,6 +133,14 @@ async function loadGallery() {
   });
 }
 
+new Swiper(".gallerySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 
 // ==========================================================
 // ✅ LOAD TESTIMONIALS / STORIES
