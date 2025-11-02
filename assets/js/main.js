@@ -94,41 +94,45 @@ function initContactForm() {
 // ✅ LOAD GALLERY FROM SUPABASE
 // ==========================================================
 async function loadGallery() {
-    const galleryGrid = document.getElementById("galleryGrid");
-    if (!galleryGrid) return;
+  const container = document.getElementById("galleryContainer");
+  if (!container) return;
 
-    galleryGrid.innerHTML = `<p style="text-align:center;">Loading...</p>`;
+  container.innerHTML = "";
 
-    const { data, error } = await supabase
-        .from("gallery")
-        .select("*")
-        .order("id", { ascending: false });
+  const { data, error } = await supabase
+    .from("gallery")
+    .select("*")
+    .order("id", { ascending: false });
 
-    if (error) {
-        console.error(error);
-        galleryGrid.innerHTML = `<p style="color:red;text-align:center;">Failed to load gallery</p>`;
-        return;
-    }
+  if (error || !data.length) {
+    container.innerHTML = "<p>No gallery images found</p>";
+    return;
+  }
 
-    if (!data.length) {
-        galleryGrid.innerHTML = `<p style="text-align:center;">No images uploaded yet.</p>`;
-        return;
-    }
+  data.forEach(item => {
+    const slide = document.createElement("div");
+    slide.classList.add("swiper-slide");
 
-    galleryGrid.innerHTML = "";
+   slide.innerHTML = `
+  <div class="gallery-card">
+    <img src="${item.image_url}" class="gallery-img">
+  </div>
+`;
 
-    data.forEach(item => {
-        const box = document.createElement("div");
-        box.classList.add("gallery-item");
 
-        box.innerHTML = `
-            <img src="${item.image_url}" alt="${item.title}" class="gallery-img">
-            <p class="gallery-title">${item.title}</p>
-        `;
+    container.appendChild(slide);
+  });
 
-        galleryGrid.appendChild(box);
-    });
+  new Swiper(".gallerySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 }
+
 
 // ==========================================================
 // ✅ LOAD TESTIMONIALS / STORIES

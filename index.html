@@ -161,19 +161,21 @@ Now and Beyond – Expanding programs in women’s empowerment, education, and h
     </section>
 
     <!-- ===== GALLERY / IMPACT ===== -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <h2>Our Work in Action</h2>
-            <p>Snapshots from our ground-level work, events, and outreach activities.</p>
+   <section id="gallery" class="gallery-section">
+    <div class="container">
 
-            <!-- ✅ Supabase images appear here -->
-            <div class="gallery-grid" id="galleryGrid">
-                <p style="text-align:center;">Loading gallery...</p>
-            </div>
+        <h2 class="gallery-heading">Our Work in Action</h2>
+        <p class="gallery-subtext">
+            Snapshots from our ground-level work, events, and outreach activities.
+        </p>
+
+        <!-- ✅ Swiper container -->
+        <div class="swiper gallerySwiper">
+            <div class="swiper-wrapper" id="galleryContainer"></div>
+            <div class="swiper-pagination"></div>
         </div>
-    </section>
 
-        
+    </div>
 </section>
 
 
@@ -447,5 +449,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </body>
+
 </html>
