@@ -731,6 +731,26 @@ section {
         display: none;
     }
 }
+/* ✅ Fix text width for Stories on mobile */
+@media (max-width: 768px) {
+    .testimonials-section .container {
+        width: 94% !important;   /* more screen usage */
+        max-width: none;
+    }
+
+    .story-content {
+        text-align: left;
+        font-size: 1.05rem;
+        line-height: 1.9;
+        letter-spacing: 0.2px;
+        word-spacing: 1px;
+        padding: 12px 14px !important; /* less empty space */
+    }
+
+    .story-header {
+        padding: 16px 14px;
+    }
+}
 
 
 /* =========================================
