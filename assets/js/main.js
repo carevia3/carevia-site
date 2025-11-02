@@ -94,7 +94,7 @@ function initContactForm() {
 // ✅ LOAD GALLERY FROM SUPABASE
 // ==========================================================
 async function loadGallery() {
-  const container = document.getElementById("galleryContainer");
+  const container = document.getElementById("galleryGrid");
   if (!container) return;
 
   container.innerHTML = "";
@@ -112,35 +112,27 @@ async function loadGallery() {
   data.forEach(item => {
     const slide = document.createElement("div");
     slide.classList.add("swiper-slide");
-
-   slide.innerHTML = `
-  <div class="gallery-card">
-    <img src="${item.image_url}" class="gallery-img">
-  </div>
-`;
-
-
+    slide.innerHTML = `
+        <div class="gallery-card">
+          <img src="${item.image_url}" class="gallery-img">
+        </div>
+    `;
     container.appendChild(slide);
   });
 
-  new Swiper(".gallerySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+  // ✅ Initialize after slides rendered
+  setTimeout(() => {
+    new Swiper(".gallerySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  }, 200);
 }
 
-new Swiper(".gallerySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 10,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
 
 // ==========================================================
 // ✅ LOAD TESTIMONIALS / STORIES

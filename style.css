@@ -1744,3 +1744,6 @@ a:focus {
         padding-right: 0 !important;
     }
 }
+.swiper-wrapper {
+  display: flex !important;
+}

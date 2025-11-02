@@ -7,8 +7,9 @@
     <title>Carevia Foundation - Empowering Communities</title>
     
     <!-- Link to External CSS -->
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 
     
@@ -165,18 +166,17 @@ Now and Beyond – Expanding programs in women’s empowerment, education, and h
     <!-- ===== GALLERY / IMPACT ===== -->
    <section id="gallery" class="gallery-section">
     <div class="container">
-
-        <h2 class="gallery-heading">Our Work in Action</h2>
-        <p class="gallery-subtext">
-            Snapshots from our ground-level work, events, and outreach activities.
-        </p>
+        <h2>Our Work in Action</h2>
+        <p>Snapshots from our ground-level work, events, and outreach activities.</p>
 
         <!-- ✅ Swiper container -->
         <div class="swiper gallerySwiper">
-            <div class="swiper-wrapper" id="galleryContainer"></div>
+            <div class="swiper-wrapper" id="galleryGrid">
+                <!-- ✅ Images will be injected here -->
+            </div>
+
             <div class="swiper-pagination"></div>
         </div>
-
     </div>
 </section>
 
@@ -419,6 +419,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- ===== JAVASCRIPT ===== -->
     <script type="module" src="assets/js/supabase.js"></script>
     <script type="module" src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 <script>
 // TEMPORARY DEBUG SCRIPT
 document.addEventListener('DOMContentLoaded', function() {
