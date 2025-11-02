@@ -1665,3 +1665,27 @@ a:focus {
     align-self: flex-end;
   }
 }
+/* ✅ FIX MOBILE LAYOUT SQUEEZING */
+@media (max-width: 768px) {
+
+    /* Make general text left aligned */
+    body, p, .story-content, .testimonial-text {
+        text-align: left !important;
+    }
+
+    /* Make container full width */
+    .container {
+        max-width: 100% !important;
+        padding: 0 18px !important;
+    }
+
+    /* Fix testimonial cards width */
+    .testimonial-card, .gallery-card, .story-accordion {
+        width: 100% !important;
+    }
+
+    /* Reduce huge top spacing */
+    section h2 {
+        font-size: 1.8rem !important;
+    }
+}
