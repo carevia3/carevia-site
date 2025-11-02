@@ -256,3 +256,8 @@ window.exportContacts = async () => {
 
     URL.revokeObjectURL(url);
 };
+// logout snippet
+function logout() {
+  document.cookie = "loggedIn=; path=/; max-age=0";
+  window.location.href = "login.html";
+}
